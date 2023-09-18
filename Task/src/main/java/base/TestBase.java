@@ -30,7 +30,9 @@ public class TestBase {
     public static Logger logger = Logger.getLogger(TestBase.class);
     public TestData testDataReader;
 
-    // Download from chrome
+   /*
+    this used to download from chrome
+    */
     public static ChromeOptions chromeOption() {
         ChromeOptions options = new ChromeOptions();
         HashMap<String, Object> chromePrefs = new HashMap<String, Object>();
@@ -39,8 +41,10 @@ public class TestBase {
         options.addArguments("--window-size=1024x768");
         return options;
     }
+      /*
+      this used to download from firefox
 
-    // Download from FireFox
+      */
     public static FirefoxOptions firefoxOption() {
         FirefoxOptions option = new FirefoxOptions();
         option.setAcceptInsecureCerts(true);
@@ -50,16 +54,7 @@ public class TestBase {
         option.setCapability("resolution", "1024x768");
         return option;
     }
-    // Download from FireFox
-    public static FirefoxOptions firefoxOption2() {
-        FirefoxOptions option = new FirefoxOptions();
-        option.setAcceptInsecureCerts(true);
-        option.addPreference("browser.download.folderList", 2);
-        option.addPreference("browser.helperApps.neverAsk.saveToDisk", "application/octet-stream");
-        option.addPreference("browser.download.manager.showWhenStarting", false);
-        option.setCapability("resolution", "1024x768");
-        return option;
-    }
+
     @BeforeTest
     @Parameters({"browser"})
     public void openDriver(@Optional("chrome") String browserName) {

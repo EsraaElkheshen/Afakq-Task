@@ -20,24 +20,23 @@ public class AccountPage extends PageBase {
     By txt_addressAlias = By.id("alias");
     By btn_Register = By.xpath("//button[@id='submitAccount']/span");
     By txt_successMsg = By.xpath("//p[@class='info-account']");
-    //By btn_signIn = By.xpath("//button[@id='SubmitLogin']/span");
 
     public AccountPage(WebDriver driver) {
-
         super(driver);
     }
 
-    // enter random Email
+    /*
+    This used to enter random Email
+     */
     public void enterEmail(String email) {
-
         clearText(txt_Email);
         sendKeys(txt_Email, email + generateEmail() + Constants.DomainName);
         clickOnButton(btn_newAccount);
-
     }
 
-
-    //create New Account
+    /*
+    this used to create New Account
+     */
     public void createNewAccount(String firstname, String lastname,
                                  String password, String address, String city,
                                  String state, String code, String mobile,
@@ -55,21 +54,20 @@ public class AccountPage extends PageBase {
         clearText(txt_addressAlias);
         sendText(txt_addressAlias, alias);
         clickOnButton(btn_Register);
-
     }
-
-
-// validate Success Message
+    /*
+    This used to validate Success Message
+     */
 
     public String getSuccessMsg() {
         return getText(txt_successMsg);
     }
 
-
+    /*
+   This used to display Success Message
+     */
     public boolean isSuccessMsgDisplay() {
 
         return isDisplay(txt_successMsg);
     }
-
-
 }

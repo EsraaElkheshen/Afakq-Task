@@ -7,38 +7,43 @@ import org.openqa.selenium.WebDriver;
 
 
 public class HomePage extends PageBase {
-
-
     By btn_signInMenu = By.xpath("//a[@class='login']");
     By btn_signOut = By.xpath("//a[@class='logout']");
     By txt_Msg = By.xpath("//h3[text()='Create an account']");
-
 
     public HomePage(WebDriver driver) {
 
         super(driver);
     }
 
-    // sign in  to page
+    /*
+    This used to click on signIn
+     */
     public void signIn() {
 
         clickOnButton(btn_signInMenu);
     }
 
-    // log out from page
+    /*
+    This used to log out from page
+     */
     public void signOut() {
 
         clickOnButton(btn_signOut);
     }
 
-    // validate sign in btn display
+    /*
+   this used to validate sign in btn display
+     */
     public boolean isSignInDisplay() {
         return isDisplay(btn_signInMenu);
     }
 
+     /*
+       this used to get msg text
+     */
     public String getMsgText() {
         return getText(txt_Msg);
-
     }
 
 }

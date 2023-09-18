@@ -29,18 +29,6 @@ public class PageBase {
         js = (JavascriptExecutor) driver;
     }
 
-
-    public boolean clickButton(By element) {
-
-        try {
-            js.executeScript("arguments[0].click();", driver.findElement(element));
-            return true;
-        } catch (Exception e) {
-            logger.error("Element is clicked By java Script" + element + e);
-            return false;
-        }
-    }
-
     public boolean isDisplay(By element) {
 
         try {
@@ -52,12 +40,10 @@ public class PageBase {
         }
 
     }
-
     public void selectByVisibaleText(By element, String Value) {
         select = new Select(driver.findElement(element));
         select.selectByVisibleText(Value);
     }
-
 
     public boolean clickOnButton(By element) {
         try {
@@ -109,32 +95,10 @@ public class PageBase {
         return driver.findElement(element).getText();
     }
 
-    public void hoverMouse(By element) {
-        try {
-            action.moveToElement(driver.findElement(element)).build().perform();
-
-        } catch (Exception e) {
-            logger.error("Hover Mouse" + element + e);
-        }
-    }
-
-    public boolean scrollViewElement(By element) {
-
-        try {
-            js.executeScript("arguments[0].scrollIntoView();", driver.findElement(element));
-            return true;
-        } catch (Exception e) {
-            logger.error("Scroll View Element" + element + e);
-            return false;
-        }
-    }
-
-
     public int generateEmail() {
         Random randomGenerator = new Random();
         int randomInt = randomGenerator.nextInt(999999);
         return randomInt;
     }
-
 
 }
